@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import { router } from '../routes/usuarios.js';
 
-import { dbConnection } from '../database/config';
+import { dbConnection } from '../database/config.js';
  
 class Server {
  
