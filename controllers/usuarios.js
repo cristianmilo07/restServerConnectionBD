@@ -1,7 +1,5 @@
 import { response, request  } from 'express';
 import  bcryptjs from 'bcryptjs';
-import { validationResult } from 'express-validator';
-
 
 import { Usuario } from '../models/usuario.js';
 
@@ -22,10 +20,6 @@ const usuariosGet = (req = request, res = response) => {
 
 const usuariosPost = async (req, res = response) => {
 
-    const errors = validationResult(req);
-    if(!errors.isEmpty()){
-        return res.status(400).json(errors);
-    }
 
     const {nombre, correo, password, rol} = req.body;
     const usuario = new Usuario({nombre, correo, password, rol});
