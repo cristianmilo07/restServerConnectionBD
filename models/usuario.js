@@ -35,6 +35,6 @@ const UsuarioSchema = Schema({
 })
 
 //Create a new model of user
-const Usuario = model('Usuario', UsusarioSchema);
+const Usuario = model('Usuario', UsuarioSchema);
 //Export the model
-module.exports = {Usuario}; 
+export { Usuario }; 
