@@ -32,7 +32,12 @@ const UsuarioSchema = Schema({
         default: false
     },
 
-})
+});
+
+UsuarioSchema.methods.toJSON = function() {
+    const { __v, password, ...usuario  } = this.toObject();
+    return usuario;
+}
 
 //Create a new model of user
 const Usuario = model('Usuario', UsuarioSchema);
