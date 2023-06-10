@@ -1,9 +1,8 @@
 import { Router } from 'express';
 import { check } from 'express-validator';
 
-import { validarCampos } from '../middlewares/validar-campos.js';
-import { validarJWT } from '../middlewares/validar-jwt.js';
-import { esAdminRole, tieneRole } from '../middlewares/validar-roles.js';
+import { esAdminRole, tieneRole, validarCampos, validarJWT } from '../middlewares/index.js'; 
+
 
 import { emailExiste, esRoleValido, existeUsuarioPorId } from '../helpers/db-validators.js';
 
