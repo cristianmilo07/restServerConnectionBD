@@ -4,14 +4,19 @@ import { router } from '../routes/usuarios.js';
 
 import { dbConnection } from '../database/config.js';
 import { routers } from '../routes/auth.js';
+import { routersCategory } from '../routes/categorias.js';
  
 class Server {
  
     constructor(){
  
         this.app = express();
-        this.usuarioPath = '/api/usuarios';
-        this.authPath     = '/api/auth';
+
+        this.paths = {
+            auth:       '/api/auth',
+            usuario:    '/api/usuarios',
+            categorias: '/api/categorias'
+        }
         
         // Conectar a base de datos
         this.conectarDB();
@@ -41,8 +46,9 @@ class Server {
     }
  
     routes(){
-        this.app.use(this.authPath, routers);
-        this.app.use(this.usuarioPath, router);
+        this.app.use(this.paths.auth, routers);
+        this.app.use(this.paths.usuario, router);
+        this.app.use(this.paths.categorias, routersCategory);
     }
  
     listener(){
