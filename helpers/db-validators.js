@@ -1,5 +1,5 @@
 import { Role } from '../models/role.js';
-import { Usuario } from '../models/usuario.js';
+import { Usuario, Categoria } from '../models/index.js';
 
 
 const esRoleValido = async(rol = '') => {
@@ -28,8 +28,22 @@ const existeUsuarioPorId = async( id ) => {
     }
 }
 
+/**
+ * Categorias
+ */
+const existeCategoriaPorId = async( id ) => {
+
+    // Verificar si el correo existe
+    const existeCategoria = await Categoria.findById(id);
+    if ( !existeCategoria ) {
+        throw new Error(`El id no existe ${ id }`);
+    }
+}
+
+
 export { 
     esRoleValido,
     emailExiste,
-    existeUsuarioPorId
+    existeUsuarioPorId,
+    existeCategoriaPorId,
  }

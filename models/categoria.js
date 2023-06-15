@@ -17,6 +17,11 @@ const CategoriaSchema = Schema({
     }
 });
 
+CategoriaSchema.methods.toJSON = function() {
+    const { __v, estado, ...data  } = this.toObject();
+    return data;
+}
+
 
 //Create a new model of role
 const Categoria = model('Categoria', CategoriaSchema);
