@@ -40,10 +40,23 @@ const existeCategoriaPorId = async( id ) => {
     }
 }
 
+/**
+ * Productos
+ */
+const existeProductoPorId = async( id ) => {
+
+    // Verificar si el correo existe
+    const existeProducto = await Producto.findById(id);
+    if ( !existeProducto ) {
+        throw new Error(`El id no existe ${ id }`);
+    }
+}
+
 
 export { 
     esRoleValido,
     emailExiste,
     existeUsuarioPorId,
     existeCategoriaPorId,
+    existeProductoPorId
  }

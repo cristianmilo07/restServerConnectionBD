@@ -40,6 +40,6 @@ ProductoSchema.methods.toJSON = function() {
 
 
 //Create a new model of role
-const Productos = model('Productos', ProductoSchema);
+const Producto = model('Producto', ProductoSchema);
 //Export the model
-export { Productos }; 
+export { Producto }; 

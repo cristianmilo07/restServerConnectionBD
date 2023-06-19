@@ -5,6 +5,8 @@ import { router } from '../routes/usuarios.js';
 import { dbConnection } from '../database/config.js';
 import { routers } from '../routes/auth.js';
 import { routersCategory } from '../routes/categorias.js';
+import { routersProducto } from '../routes/producto.js';
+import { routersBuscar } from '../routes/buscar.js';
  
 class Server {
  
@@ -16,7 +18,8 @@ class Server {
             auth:       '/api/auth',
             usuario:    '/api/usuarios',
             categorias: '/api/categorias',
-            productos: '/api/productos'
+            producto:   '/api/producto',
+            buscar:     '/api/buscar'
         }
         
         // Conectar a base de datos
@@ -50,7 +53,8 @@ class Server {
         this.app.use(this.paths.auth, routers);
         this.app.use(this.paths.usuario, router);
         this.app.use(this.paths.categorias, routersCategory);
-        //this.app.use(this.paths.productos, routersProductos);
+        this.app.use(this.paths.producto, routersProducto);
+        this.app.use(this.paths.buscar, routersBuscar);
     }
  
     listener(){
